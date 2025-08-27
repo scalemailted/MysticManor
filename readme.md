@@ -5,6 +5,7 @@
 *A scene-based haunted-house adventure built with **HTML + CSS** and just a sprinkle of JavaScript to drive choices and pass simple state via the URL.*
 
 **Play:** [https://scalemailted.github.io/MysticManor/](https://scalemailted.github.io/MysticManor/)
+
 **Code:** [https://github.com/scalemailted/MysticManor](https://github.com/scalemailted/MysticManor)
 
 ---
