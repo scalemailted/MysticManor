@@ -12,7 +12,7 @@
 
 ## What is it?
 
-**Mystic Manor** is a lightweight, file-per-scene interactive story. You prowl a cursed estate, collect a few key items, and choose how the haunting ends. Links between pages preserve flags like “do you have the knife?” or “is the hatch open?” using query-string parameters—no backend or build step required.
+**Mystic Manor** is a lightweight, file-per-scene interactive story. You prowl a cursed estate, collect a few key items, and choose how the haunting ends. Links between pages preserve flags like “do you have the knife?” or “is the hatch open?” using query-string parameters, no backend or build step required.
 
 ---
 
