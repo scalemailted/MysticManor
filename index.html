@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mystic Manor</title>
+  <meta name="description" content="A tiny HTML+CSS-first haunted-house story with light JS to pass simple state between scenes." />
+
+  <!-- Open Graph (nice link previews) -->
+  <meta property="og:title" content="Mystic Manor" />
+  <meta property="og:description" content="A tiny HTML+CSS-first haunted-house story with light JS to pass simple state between scenes." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/scalemailted/MysticManor/refs/heads/main/docs/MysticManor.gif" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#121821; --text:#e7edf5; --muted:#a9b3c0;
+      /* button palettes (rectangular buttons) */
+      --play:#22c55e;         --play-ink:#06210f;      /* eerie green */
+      --code:#7c5cff;         --code-ink:#0e0533;      /* indigo/violet */
+      --ring:rgba(34,197,94,.30);
+      --maxw:880px; --radius:12px; --btnr:10px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f7f9fc; --panel:#ffffff; --text:#0b1220; --muted:#5a6573;
+        --play:#16a34a; --play-ink:#04170d;
+        --code:#7c5cff; --code-ink:#0e0533;
+        --ring:rgba(22,163,74,.25);
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #142233 0%, transparent 50%),
+        radial-gradient(1000px 600px at 110% 10%, #1a1022 0%, transparent 60%),
+        var(--bg);
+      padding:40px 16px;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto;}
+    header{text-align:center; margin-bottom:24px;}
+    h1{font-size:clamp(28px,3.4vw,40px); margin:0 0 8px; letter-spacing:.3px;}
+    .tagline{color:var(--muted); margin:0;}
+    .card{
+      background:var(--panel); border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.02);
+      padding:20px;
+    }
+    figure{margin:0 0 16px;}
+    .cover{
+      display:block; width:100%; height:auto; border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 8px 24px rgba(0,0,0,.35);
+    }
+    .lead{font-size:1.05rem; margin:12px 0 18px;}
+    .actions{display:flex; flex-wrap:wrap; gap:12px; margin:18px 0 6px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:12px 18px; border-radius:var(--btnr);
+      text-decoration:none; font-weight:700; letter-spacing:.2px;
+      border:1px solid transparent;
+      transition:transform .05s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease;
+      will-change:transform, filter;
+    }
+    .btn:focus-visible{outline:0; box-shadow:0 0 0 4px var(--ring);}
+    .btn.play{background:var(--play); color:var(--play-ink);}
+    .btn.play:hover{transform:translateY(-1px);}
+    .btn.code{background:var(--code); color:var(--code-ink);}
+    .btn.code:hover{transform:translateY(-1px); filter:saturate(1.1);}
+    .howto{margin-top:8px; color:var(--muted);}
+    ul{margin:10px 0 0 20px;}
+    footer{color:var(--muted); text-align:center; margin:28px 0 8px; font-size:.95rem;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Mystic Manor</h1>
+      <p class="tagline">Haunted-house adventure in HTML + CSS + minimal JS</p>
+    </header>
+
+    <main class="card" role="main">
+      <figure>
+        <!-- Use local asset when published via GH Pages; OG tag above uses absolute URL -->
+        <img class="cover"
+             src="docs/MysticManor.gif"
+             alt="Mystic Manor — animated screenshot of the haunted manor scenes" />
+      </figure>
+
+      <p class="lead">
+        A minimalist, file-per-scene interactive story set in a cursed estate. Each room is a plain HTML page styled as
+        an eerie panel. Explore the grounds, collect key items, and decide how the haunting ends.
+      </p>
+
+      <div class="actions">
+        <!-- Game lives under /game/. Start at welcome.html to seed flags. -->
+        <a class="btn play" href="./game/welcome.html" aria-label="Play Mystic Manor now">Play Game</a>
+        <a class="btn code" href="https://github.com/scalemailted/MysticManor" target="_blank" rel="noopener">View Code</a>
+      </div>
+
+      <div class="howto">
+        <strong>How to play:</strong>
+        <ul>
+          <li>Begin at <em>Welcome</em> and click <em>Proceed</em> (this seeds the URL flags).</li>
+          <li>Explore the yard → <em>Backyard</em>; visit the <em>Shed</em> (machete) or the <em>Trapdoor</em> (basement).</li>
+          <li>Enter the manor and choose rooms; some choices escalate danger and push you upstairs.</li>
+          <li>Reach the <em>Study</em> to resolve the mystery—your items determine the ending.</li>
+          <li>State is passed in the URL (e.g., <code>?sk=1&mc=0&kn=0&nl=0&open=0</code>).</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      Built with just HTML, CSS, and tiny bits of JavaScript. No frameworks.
+    </footer>
+  </div>
+</body>
+</html>
