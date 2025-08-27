@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Shed </h1>
+        <hr>
+        <img id='image' src='assets/shed.png' class='horiz-image-viewport'>
+        <p id='textbox'> The vines were able to break into the shed, covering most of the tools left inside. You are still able to see a machete that you could probably grab from the vines and a can of gasoline, strangely uncovered.
+        </p>
+        <ul>
+            <li id='machete'> <a href='#' onclick='grabTool()'>Grab the machete</a> </li>
+            <li> <a id='backyard' href='backyard.html'>Leave the shed</a> </li>
+        </ul>
+        <script>
+            backyard.href  += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            if (+queryString.get("mc") > 0) {
+                image.src = `assets/brokenshed.png`
+                textbox.innerHTML = `The shed is in ruins, just like how you left it.`
+                // I looked up how to do this next part so it would permenantly change the page
+                document.getElementById('machete').style.visibility = 'hidden';
+            }
+
+            function grabTool() {
+                document.body.innerHTML = (
+                    `<h1>The Ruined Shed</h1>
+                    <img src="assets/brokenshed.png" width="400">
+                    <p> As you grab the machete, you trip over the vine. The shed starts to fall apart. You make your escape, but the shed is left in ruins. </p>
+                    <a href="backyard.html?sk=0&mc=1&bk=0&kn=0&nl=0"> <h4> Return to backyard </h4> </a>
+                    `
+                );
+            }
+        </script>
+    </body>
+</html>

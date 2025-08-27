@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Basement Door Hatch </h1>
+        <hr>
+        <a id='door' href='#'>
+            <img id='doorImage' onclick='openDoor()' src="assets/basementdoorblocked.png" class='horiz-image-viewport'>
+        </a>
+        <p id='textbox'> Thick vines from around the house reach over and cover the trapdoor to the basement. You will need to remove the vines to get through. </p>
+        <ul>
+            <li> <a id='backyard' href='backyard.html'>Leave the basement hatch</a> </li>
+        </ul>
+        <script>
+            backyard.href  += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var machete = +queryString.get("mc");
+
+            if (+queryString.get("open") > 0) {
+                doorImage.src = `assets/basementdooropened.png`
+                textbox.innerHTML = `The basement door is sitting there wide open. Darkness engulfs the stairs but your flashlight makes it possible to see the stairs for a safe decent.`
+            }
+
+            function openDoor() {
+                if (doorImage.src.includes('basementdooropened')) {
+                    door.href = 'basement.html?' +queryString;
+                } else if (machete > 0) {
+                    doorImage.src='assets/basementdooropened.png'
+                    textbox.innerHTML = `You are able to cut through the vines with the machete. It is dark but with the use of your flashlight you brought, it should not be a problem.`
+                    queryString.set('open', 1);
+                    backyard.href = 'backyard.html?' +queryString;
+                } else {
+                    textbox.innerHTML = `The door will not budge. You suspect you need something to cut through the vines.`;
+                }
+            }
+        </script>
+    </body>
+</html>

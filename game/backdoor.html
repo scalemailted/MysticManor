@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Backdoor </h1>
+        <hr>
+        <a id='door' href='#'>
+            <img class='horiz-image-viewport' id='doorImage' onclick='openDoor()' src="assets/backdoor.png">
+        </a>
+        <p id="textbox"> The back door shows signs of break-in to no avail. It is impressive how well it's been able to hold up over the years. </p>
+        <a id='backyard' href="backyard.html">Leave the back door</a>
+        <script>
+            backyard.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var key = +queryString.get("sk");
+
+            function openDoor() {
+                if (key > 0) {
+                    textbox.innerHTML = `The key doesn't seem to work on the lock`;
+                } else {
+                    textbox.innerHTML = `The door is locked. It won't budge.`;
+                }
+            }
+        </script>
+    </body>
+</html>

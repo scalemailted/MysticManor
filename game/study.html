@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1 > The Study </h1>
+        <hr>
+        <img src='assets/study.png' class='horiz-image-viewport'>
+        <p id='textbox'>Inside, you see a cluttered room, but no signs of why. The room sends chills down your spine, and you think you have had enough of this place. Maybe someone brave than you can uncover the truth one day.</p>
+        <hr>
+        <p>Thanks for playing! If you'd like to restart to get a different ending, feel free. There is one true ending, and you will know when you get it to. Stay vigilant investigator!</p>
+        <a href="manor.html?sk=0&mc=0&bk=0&kn=0&nl=0&open=0"> <h4> Restart Investigation </h4> </a>
+        <script>
+            var queryString = new URLSearchParams(location.search);
+
+            if (+queryString.get('kn') > 0) {
+                textbox.innerHTML = `You walk into the study with a heavy breath. As you are taking a look around at the cluttered room, a hand reaches out onto your shoulder. You instantly take the knife you found in the dining room and stab where it came from. You jump back at the sight of a decaying arm, but where did it come from? From this, you can tell that the rumored murder here was true, but from what?`
+            } else if (+queryString.get('bk') > 0) {
+                textbox.innerHTML = `You walk into the cluttered study with signs of an investigation spread along the desk and walls. Blood is drawn across the wall, covering the pictures of the murderer that was being investigated. You conclude that the murderer must have found the investigator first. The rumors were true, but they never did get the story right.`
+            } else if (+queryString.get('nl') > 0) {
+                textbox.innerHTML = `With the amulet in hand, you enter the study. You see a cluttered room with investigation notes and webs sprawled on the walls. On the desk is a piece of paper with bloodstains on it. It tells the story of a husband who was investigating a murder but ended up being sought out for his work. The blood covers the murders name, but it did say to return the amulet to his wife if found. You track her down and she is so grateful since she never wanted to step foot back there again.`
+            }
+
+        </script>
+    </body>
+</html>

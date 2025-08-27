@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Dining Room </h1>
+        <hr>
+        <img id='image' src='assets/diningroom.png' class='horiz-image-viewport'>
+        <p id='textbox'> The dining room is oddly normal. The seats are pushed in with surprisingly clean and polished dishes and silverware. A mesmerizing ceramic plate display can also be seen. </p>
+        <ul>
+            <li> <a id='mainhall' href="mainhall.html">Head back to the main hall</a> </li>
+            <li id='plate'> <a href='#' onclick="crushed()">Check out the plate dislpay</a> </li>
+            <li id='knife'> <a href='#' onclick="grabKnife()">Grab a knife off the table</a> </li>
+        </ul>
+        <script>
+            mainhall.href += location.search;
+
+            function crushed() {
+                document.body.innerHTML = (
+                    `<h1>The Falling Display Case</h1>
+                    <img src="assets/ghost.png" width="400">
+                    <p> As you move closer to admire the cermaic plates, a ghostly figure appears in front of you. You freeze as the display case falls on top of you. You died. </p>
+                    <a href="manor.html?sk=0&mc=0&bk=0&kn=0&open=0"> <h4> Game Over </h4> </a>
+                    `
+                );
+            }
+
+            function grabKnife() {
+                textbox.innerHTML = `You decide to grab the knife from the table. Upon doing this, you hear the ceramic plates display case fall over. You know you need to find out what is happening here fast.`
+                image.src = `assets/knife.png`
+                document.getElementById('plate').style.visibility = 'hidden';
+                document.getElementById('knife').style.visibility = 'hidden';
+                var queryString = new URLSearchParams(location.search);
+                queryString.set('open', 1);
+                queryString.set('kn', 1);
+                mainhall.href = 'mainhall.html?' +queryString;
+            }
+        </script>
+    </body>
+</html>

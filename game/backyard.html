@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1 class='center'> The Overgrown Backyard </h1>
+        <hr>
+        <div class='center'>
+            <img src='assets/backyard.png' class='vert-image-viewport'>
+        </div>
+        <p> Even though the front of the house was overgrown, this was considerably worse. You can feel the plants brushing against your pants. Vines engulf everything in sight: the shed, the house, the basement hatch, and even the bird fountain. </p>
+        <ul>
+            <li> <a id='trapdoor' href='trapdoor.html'>Try to get in the basement</a> </li>
+            <li> <a id='shed' href='shed.html'>Check out the shed</a> </li>
+            <li> <a id='backdoor' href='backdoor.html'>Try the backdoor</a> </li>
+            <li> <a id='manor' href="manor.html">Head back to the front</a></li>
+        </ul>
+        <script>
+            trapdoor.href += location.search;
+            shed.href     += location.search;
+            backdoor.href += location.search;
+            manor.href    += location.search;
+        </script>
+    </body>
+</html>

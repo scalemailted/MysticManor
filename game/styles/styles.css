@@ -1,0 +1,38 @@
+body {
+    background-color:silver;
+    text-align: center;
+}
+
+hr {
+    color:rgb(41, 2, 68)
+}
+
+h1 {
+    color:rgb(17, 61, 17);
+}
+
+p {
+    font-family: 'Roboto Serif', sans-serif;
+    outline-width: 3px;
+    outline-style: solid;
+    outline-color: black;
+    background-color: rgb(179, 176, 176);
+    padding: 3px;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: indigo;
+}
+a:hover {
+    color: rgb(41, 2, 68);
+}
+
+.horiz-image-viewport {
+    width: 550;
+}
+
+.vert-image-viewport {
+    height: 550;
+}

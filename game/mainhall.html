@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Manor's Opening Hall </h1>
+        <hr>
+        <img id='image' src='assets/mainhall.png' class='horiz-image-viewport'>
+        <p id='textbox'> As you enter, the front door slams shut; it's locked. The house looks relatively nice from how it was left, ignoring all the cobwebs and dust. You're greeted by a grand staircase with a once spectacular chandelier.</p>
+        <ul>
+            <li> <a id='hallway' href='hallway.html'>Go up the stairs</a> </li>
+            <li id="diningpoint"> <a id='diningroom' href='diningroom.html'>Head to the dining room</a> </li>
+            <li id="livingpoint"> <a id='livingroom' href='livingroom.html'>Head to the living room</a> </li>
+        </ul>
+        <script>
+            diningroom.href += location.search;
+            livingroom.href += location.search;
+            hallway.href    += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+
+            if (+queryString.get("open") > 0) {
+                document.getElementById('diningpoint').style.visibility = 'hidden';
+                document.getElementById('livingpoint').style.visibility = 'hidden';
+                textbox.innerHTML = `You need to get out of here fast. It's feeling more unsafe by the minute.`
+            }
+        </script>
+    </body>
+</html>

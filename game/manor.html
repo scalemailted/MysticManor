@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@200;300&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <h1> The Frontyard of the Manor </h1>
+        <hr>
+        <img src='assets/manor.png' class='horiz-image-viewport'>
+        <div class='outline padding margin'>
+            <p> The decrepit manor stands before you as the fear finally sets in on this cold, windy night. You’ve heard various stories of what happened, and you have finally made it to try to uncover what happened so long ago. </p>
+        </div>
+        <ul>
+            <li> <a id='frontdoor' href='frontdoor.html'>Check the front door</a> </li>
+            <li> <a id='backyard' href='backyard.html'>Walk around to the back</a> </li>
+        </ul>
+        <script>
+            frontdoor.href += location.search;
+            backyard.href  += location.search;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Basement </h1>
+        <hr>
+        <img src='assets/basement.png' class='horiz-image-viewport'>
+        <p id='textbox'> You have finally made it in the house. The basement is dank; you see water dripping from every corner. To your left, you see a broken, unrepairable staircase. In front of you is a row of shelves with potentially useful items. </p>
+        <ul>
+            <li id='shelf'> <a href='#' onclick='checkShelves()'>Check out the shelves</a> </li>
+            <li> <a id='trapdoor' href='trapdoor.html'>Leave the basement</a> </li>
+        </ul>
+        <script>
+            trapdoor.href += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var key = +queryString.get("sk");
+
+            if (key > 0) {
+                document.getElementById('shelf').style.visibility = 'hidden';
+                textbox.innerHTML = `You have finally made it in the house. The basement is dank; you see water dripping from every corner. To your left, you see a broken, unrepairable staircase. In front of you is a row of shelves you have already checked.`
+            }
+
+            function checkShelves() {
+                textbox.innerHTML = `Inside one of the boxes, you found a silver key. There was nothing else of value.`
+                queryString.set('sk', ++key);
+                document.getElementById('shelf').style.visibility = 'hidden';
+                trapdoor.href = 'trapdoor.html?' +queryString;
+            }
+        </script>
+    </body>
+</html>

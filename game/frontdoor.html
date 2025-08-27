@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Porch of the Manor </h1>
+        <hr>
+        <a id='door' href='#'>
+            <img id='doorImage' onclick='openDoor()' src="assets/frontdoor.png" class='vert-image-viewport'>
+        </a>
+        <p id='textbox'> As you approach the front door, the chills you felt earlier get worse. A smell fills your nostrils of mildew and rot. The floorboards feel fragile, but manage to hold your weight. You are able to see partially broken windows, the front door, and a doormat. </p>
+        <ul>
+            <li> <a href='#' onclick='getsCut()'>Try to fit through the window</a> </li>
+            <li> <a id='manor' href='manor.html'>Leave the porch</a> </li>
+        </ul>
+        <script>
+            manor.href  += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var key = +queryString.get("sk");
+
+            function openDoor() {
+                if (doorImage.src.includes('frontdooropen')) {
+                    queryString.set('open', 0);
+                    door.href = 'mainhall.html?' +queryString;
+                } else if (key > 0) {
+                    doorImage.src='assets/frontdooropen.png'
+                    textbox.innerHTML = `The door opens. You are finally able to start investigating inside the house.`
+                    queryString.set('sk', key--);
+                } else {
+                    textbox.innerHTML = `The door appears to be locked.`;
+                }
+            }
+
+            function getsCut() {
+                document.body.innerHTML = (
+                    `<h1>You have been injured</h1>
+                    <img src="assets/bandage.png" width="400">
+                    <p> Before you are able to get in, you suffer harsh cuts on your arm and find it best to head home and tend to your wounds. </p>
+                    <a href="manor.html?sk=0&mc=0&bk=0&kn=0&nl=0&open=0"> <h4> Restart Investigation </h4> </a>
+                    `
+                );
+            }
+        </script>
+    </body>
+</html>

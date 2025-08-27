@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Upstairs Hallway </h1>
+        <hr>
+        <img src='assets/hallway.png' class='horiz-image-viewport'>
+        <p> A red velvet floor covers the hallway with a fitting wallpaper from the time. In front of you is the door to presumably the main study. To your right is a hallway leading to presumably the master bedroom. </p>
+        <ul>
+            <li> <a href='#' onclick='passedOut()'>Go down the hallway</a> </li>
+            <li> <a id='study' href='study.html'>Head into the study</a> </li>
+        </ul>
+        <script>
+            study.href += location.search;
+
+            function passedOut() {
+                document.body.innerHTML = (
+                    `<h1>You Passed Out (Ending D)</h1>
+                    <img src="assets/hospital.png" width="400">
+                    <p> As you traverse down the hallway, your head begins to spiral out of control. The hallways elongated as you suddenly pass out. You wake up in the hospital with people saying they found you passed out on the sidewalk. You didn’t uncover the story, but you learned more of what greater evil is at play here. </p>
+                    <a href="manor.html?sk=0&mc=0&bk=0&kn=0&nl=0&open=0"> <h4> Restart Investigation </h4> </a>
+                    `
+                );
+            }
+        </script>
+    </body>
+</html>

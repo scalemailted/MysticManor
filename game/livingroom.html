@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title> Mystic Manor </title>
+        <link rel="icon" href="assets/icon.png" />
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <h1> The Living Room </h1>
+        <hr>
+        <img id='image' src='assets/livingroom.png' class='horiz-image-viewport'>
+        <p id='textbox'> The living room is inviting. The chairs are made of red suede with a luxurious rug underneath. There is a fireplace that has the remnants of past use. A large bookshelf with notable titles from long ago peaks your interest. </p>
+        <ul>
+            <li> <a id='mainhall' href="mainhall.html">Head back to the main hall</a> </li>
+            <li id='fireplace'> <a href='#' onclick="fireplace()">Sift through the fireplace</a> </li>
+            <li id='bookshelf'> <a href='#' onclick="bookshelf()">Examine the bookshelf</a> </li>
+        </ul>
+
+
+        <script>
+            mainhall.href += location.search;
+
+            function fireplace() {
+                textbox.innerHTML = `As you reach into the fireplace full of burnt papers and logs you see a sparkle. You reach towards it and grab a necklace but something was unsettling: the logs were warm. You feel unsettle and decide to go upstairs next.`
+                image.src = `assets/fireplace.png`
+                document.getElementById('fireplace').style.visibility = 'hidden';
+                document.getElementById('bookshelf').style.visibility = 'hidden';
+                var queryString = new URLSearchParams(location.search);
+                queryString.set('open', 1);
+                queryString.set('nl', 1);
+                mainhall.href = 'mainhall.html?' +queryString;
+            }
+
+            function bookshelf() {
+                textbox.innerHTML = `You pick up the book that piques you the most: Sense & Sensibility. While you are reaching for it, you feel a sudden rumbling from the shelf; books start to fall from the shelf. You keep the book you grabbed and decide you need to get this investigation wrapped up and go upstairs next.`
+                image.src = `assets/bookshelf.png`
+                document.getElementById('fireplace').style.visibility = 'hidden';
+                document.getElementById('bookshelf').style.visibility = 'hidden';
+                var queryString = new URLSearchParams(location.search);
+                queryString.set('open', 1);
+                queryString.set('nl', 1);
+                mainhall.href = 'mainhall.html?' +queryString;
+            }
+        </script>
+    </body>
+</html>
